@@ -1,5 +1,8 @@
 # Sierpinski
 
+## Sample Prev. Rectangle & Spiral 
+![Sierpinski-Triangle Sample](https://github.com/NoLogig/Sierpinski/blob/master/src/assets/Sierpinksi-Triangle.png)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.2.
 
 ## Development server
