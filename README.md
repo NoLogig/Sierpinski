@@ -1,7 +1,7 @@
 # [Sierpinski](https://de.wikipedia.org/wiki/Wac%C5%82aw_Sierpi%C5%84ski)
 
 ## Sample Prev. Sierpinksi-Triangle
-![Sierpinski-Triangle Sample](https://github.com/NoLogig/Sierpinski/blob/master/src/assets/Sierpinksi-Triangle.png)
+![Sierpinski-Triangle Sample](https://github.com/NoLogig/Sierpinski/blob/master/src/assets/Sierpinksi-tri.png)
 
 ## Notes to Sierpinski & his contributions
 *Wacław Franciszek Sierpiński (\*14 March 1882 – †21 October 1969)*
