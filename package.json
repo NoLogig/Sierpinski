@@ -1,10 +1,27 @@
 {
   "name": "sierpinski",
-  "version": "0.0.0",
+  "version": "0.2.0",
+  "author": "Max Schweigerdt",
+  "description": "Sierpinski Triangle",
+  "keywords": [
+    "Angular 7",
+    "Sierpinski",
+    "triangle",
+    "gasket"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NoLogig/Sierpinski"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": "8.12.0",
+    "npm": "6.1.0"
+  },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "ng serve -o -p 4200",
+    "build": "ng build -prod -env=prod -sm=false -aot=true",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
