@@ -1,4 +1,5 @@
 # [Sierpinski](https://de.wikipedia.org/wiki/Wac%C5%82aw_Sierpi%C5%84ski)
+[![Dependencies](https://img.shields.io/david/NoLogig/Sierpinski.svg)](https://david-dm.org/NoLogig/Sierpinski) [![License](https://img.shields.io/github/license/NoLogig/Sierpinski.svg)](https://choosealicense.com/licenses/mit/) [![Donate](https://img.shields.io/badge/PayPal-Donate-blue.svg)](https://www.paypal.me/NoLogig)
 
 ## Sample Prev. Sierpinksi-Triangle
 ![Sierpinski-Triangle Sample](https://github.com/NoLogig/Sierpinski/blob/master/src/assets/Sierpinksi-triangle.png)
