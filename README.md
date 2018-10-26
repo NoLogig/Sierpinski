@@ -2,7 +2,7 @@
 [![Dependencies](https://img.shields.io/david/NoLogig/Sierpinski.svg)](https://david-dm.org/NoLogig/Sierpinski) [![License](https://img.shields.io/github/license/NoLogig/Sierpinski.svg)](https://choosealicense.com/licenses/mit/) [![Donate](https://img.shields.io/badge/PayPal-Donate-blue.svg)](https://www.paypal.me/NoLogig)
 
 ## Sample Prev. Sierpinksi-Triangle
-![Sierpinski-Triangle Sample](https://github.com/NoLogig/Sierpinski/blob/master/src/assets/Sierpinksi-triangle.png)
+![Sierpinski-Triangle Sample](https://github.com/NoLogig/Sierpinski/blob/master/src/assets/Sierpinski-triangle.png)
 
 ## Notes to Sierpinski & his contributions
 *Wacław Franciszek Sierpiński (\*14 March 1882 – †21 October 1969)*
