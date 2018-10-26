@@ -10,7 +10,7 @@ const FULL_ARC = Math.PI * 2;
 })
 export class TriangleComponent implements OnDestroy, OnInit {
 
-  // a reference to the canvas element from our template
+  // Reference to canvas
   @ViewChild('geometry') public canvasGeo: ElementRef;
 
   canvas: HTMLCanvasElement;
@@ -18,21 +18,9 @@ export class TriangleComponent implements OnDestroy, OnInit {
   cWidth = window.innerWidth;
   cHeight = window.innerHeight;
 
-  point_A = {
-    x: 400,
-    y: 100
-  };
-  point_B = {
-    x: 100,
-    y: 700
-  };
-  point_C = {
-    x: 700,
-    y: 700
-  };
   next_Point = {
-    x: 500,
-    y: 300
+    x: Math.random() * this.cWidth,
+    y: Math.random() * this.cHeight
   };
 
   constructor() { }
@@ -47,11 +35,16 @@ export class TriangleComponent implements OnDestroy, OnInit {
     this.canvas.height = this.cHeight;
     this.ctx.strokeStyle = '#fff';
     this.ctx.fillStyle = '#fff';
-
-
-    this.pointXY(this.point_A.x, this.point_A.y);
-    this.pointXY(this.point_B.x, this.point_B.y);
-    this.pointXY(this.point_C.x, this.point_C.y);
+    // A
+    this.ctx.font = '32px Roboto';
+    this.pointXY(32, this.cHeight - 32);
+    this.ctx.fillText('A', 4, this.cHeight);
+    // B
+    this.pointXY(this.cWidth - 32, this.cHeight - 32);
+    this.ctx.fillText('B', this.cWidth - 32, this.cHeight);
+    // C
+    this.pointXY(this.cWidth * .5, 32);
+    this.ctx.fillText('C', this.cWidth * .5, 32);
 
     // ToDo: implement method to attach/capture events
     this.render();
@@ -69,18 +62,18 @@ export class TriangleComponent implements OnDestroy, OnInit {
   update(): void {
     let p = Math.floor(Math.random() * 3);
     if (p === 0) {
-      this.next_Point.x = (this.point_A.x + this.next_Point.x) / 2;
-      this.next_Point.y = (this.point_A.y + this.next_Point.y) / 2;
+      this.next_Point.x = (10 + this.next_Point.x) / 2;
+      this.next_Point.y = (this.cHeight - 32 + this.next_Point.y) / 2;
       return;
     }
     if (p === 1) {
-      this.next_Point.x = (this.point_B.x + this.next_Point.x) / 2;
-      this.next_Point.y = (this.point_B.y + this.next_Point.y) / 2;
+      this.next_Point.x = (this.cWidth - 32 + this.next_Point.x) / 2;
+      this.next_Point.y = (this.cHeight - 32 + this.next_Point.y) / 2;
       return;
     }
     if (p === 2) {
-      this.next_Point.x = (this.point_C.x + this.next_Point.x) / 2;
-      this.next_Point.y = (this.point_C.y + this.next_Point.y) / 2;
+      this.next_Point.x = (this.cWidth * .5 + this.next_Point.x) / 2;
+      this.next_Point.y = (32 + this.next_Point.y) / 2;
       return;
     }
   }
