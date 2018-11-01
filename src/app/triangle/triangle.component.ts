@@ -2,9 +2,13 @@ import { Component, ElementRef,  ViewChild, OnInit, OnDestroy } from '@angular/c
 
 // Speeds performance in iterations up
 const FULL_ARC = Math.PI * 2;
+interface IPoint {
+  x: number;
+  y: number;
+}
 
 @Component({
-  selector: 'nologig-triangle',
+  selector: 'nologig-triangle-sierpinski',
   templateUrl: './triangle.component.html',
   styleUrls: ['./triangle.component.scss']
 })
@@ -23,6 +27,8 @@ export class TriangleComponent implements OnDestroy, OnInit {
     y: Math.random() * this.cHeight
   };
 
+  points: IPoint[];
+
   constructor() { }
 
   ngOnInit(): void {
@@ -33,8 +39,8 @@ export class TriangleComponent implements OnDestroy, OnInit {
     // Canvas settings
     this.canvas.width = this.cWidth;
     this.canvas.height = this.cHeight;
-    this.ctx.strokeStyle = '#fff';
-    this.ctx.fillStyle = '#fff';
+    this.ctx.strokeStyle = '#0ff';
+    this.ctx.fillStyle = '#0ff';
     // A
     this.ctx.font = '32px Roboto';
     this.pointXY(32, this.cHeight - 32);
