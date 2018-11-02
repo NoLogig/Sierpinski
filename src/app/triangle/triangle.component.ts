@@ -27,7 +27,8 @@ export class TriangleComponent implements OnDestroy, OnInit {
     y: Math.random() * this.cHeight
   };
 
-  points: IPoint[];
+  points: IPoint[] = [
+];
 
   constructor() { }
 
@@ -41,53 +42,68 @@ export class TriangleComponent implements OnDestroy, OnInit {
     this.canvas.height = this.cHeight;
     this.ctx.strokeStyle = '#0ff';
     this.ctx.fillStyle = '#0ff';
-    // A
-    this.ctx.font = '32px Roboto';
-    this.pointXY(32, this.cHeight - 32);
+
     this.ctx.fillText('A', 4, this.cHeight);
-    // B
-    this.pointXY(this.cWidth - 32, this.cHeight - 32);
     this.ctx.fillText('B', this.cWidth - 32, this.cHeight);
-    // C
-    this.pointXY(this.cWidth * .5, 32);
     this.ctx.fillText('C', this.cWidth * .5, 32);
 
     // ToDo: implement method to attach/capture events
+    this.attachEvent(this.canvas, 'click', this.createNode);
+
+    this.points.push({
+      x: 32,
+      y: this.cHeight - 32
+    });
+    this.points.push({
+      x: this.cWidth - 32,
+      y: this.cHeight - 32
+    });
+    this.points.push({
+      x: this.cWidth * .5,
+      y: 32
+    });
+
     this.render();
   }
 
-  ngOnDestroy(): void { }
+  attachEvent(ele: HTMLElement, event: string, fn) {
+    ele.addEventListener(event, this.createNode);
+  }
+
+  detachEvent(ele: HTMLElement, event: string, fn: (e: KeyboardEvent | MouseEvent) => void) {
+    ele.removeEventListener(event, fn);
+  }
+
+  createNode = (e: MouseEvent) => {
+    this.points.push({
+      x: e.clientX,
+      y: e.clientY
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.detachEvent(this.canvas, 'click', this.createNode);
+  }
 
   render(): void {
     requestAnimationFrame(() => this.render());
 
     this.pointXY(this.next_Point.x, this.next_Point.y);
     this.update();
+    this.ctx.fill();
   }
 
   update(): void {
-    let p = Math.floor(Math.random() * 3);
-    if (p === 0) {
-      this.next_Point.x = (10 + this.next_Point.x) / 2;
-      this.next_Point.y = (this.cHeight - 32 + this.next_Point.y) / 2;
-      return;
-    }
-    if (p === 1) {
-      this.next_Point.x = (this.cWidth - 32 + this.next_Point.x) / 2;
-      this.next_Point.y = (this.cHeight - 32 + this.next_Point.y) / 2;
-      return;
-    }
-    if (p === 2) {
-      this.next_Point.x = (this.cWidth * .5 + this.next_Point.x) / 2;
-      this.next_Point.y = (32 + this.next_Point.y) / 2;
-      return;
-    }
+    let p = Math.floor(Math.random() * this.points.length);
+
+    this.next_Point.x = (this.points[p].x + this.next_Point.x) * .5;
+    this.next_Point.y = (this.points[p].y + this.next_Point.y) * .5;
+    return;
   }
 
   pointXY(x: number, y: number): void {
     this.ctx.beginPath();
     this.ctx.arc(x, y, 2, 0, FULL_ARC);
-    this.ctx.fill();
   }
 
 }
