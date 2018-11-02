@@ -1,4 +1,4 @@
-import { Component, ElementRef,  ViewChild, OnInit, OnDestroy } from '@angular/core';
+import { Component, ElementRef, ViewChild, OnInit, OnDestroy } from '@angular/core';
 
 // Speeds performance in iterations up
 const FULL_ARC = Math.PI * 2;
@@ -27,8 +27,7 @@ export class TriangleComponent implements OnDestroy, OnInit {
     y: Math.random() * this.cHeight
   };
 
-  points: IPoint[] = [
-];
+  points: IPoint[] = [];
 
   constructor() { }
 
@@ -47,7 +46,7 @@ export class TriangleComponent implements OnDestroy, OnInit {
     this.ctx.fillText('B', this.cWidth - 32, this.cHeight);
     this.ctx.fillText('C', this.cWidth * .5, 32);
 
-    // ToDo: implement method to attach/capture events
+    // ToDo: implement method to attach/capture events => test
     this.attachEvent(this.canvas, 'click', this.createNode);
 
     this.points.push({
@@ -63,11 +62,16 @@ export class TriangleComponent implements OnDestroy, OnInit {
       y: 32
     });
 
-    this.render();
+    this.pointXY(this.points[0].x, this.points[0].y);
+    this.pointXY(this.points[1].x, this.points[1].y);
+    this.pointXY(this.points[2].x, this.points[2].y);
+
+    // this.render();
+
   }
 
-  attachEvent(ele: HTMLElement, event: string, fn) {
-    ele.addEventListener(event, this.createNode);
+  attachEvent(ele: HTMLElement, event: string, fn: (e: KeyboardEvent | MouseEvent) => void) {
+    ele.addEventListener(event, fn);
   }
 
   detachEvent(ele: HTMLElement, event: string, fn: (e: KeyboardEvent | MouseEvent) => void) {
@@ -90,20 +94,20 @@ export class TriangleComponent implements OnDestroy, OnInit {
 
     this.pointXY(this.next_Point.x, this.next_Point.y);
     this.update();
-    this.ctx.fill();
   }
 
   update(): void {
-    let p = Math.floor(Math.random() * this.points.length);
+    let i = Math.floor(Math.random() * this.points.length);
 
-    this.next_Point.x = (this.points[p].x + this.next_Point.x) * .5;
-    this.next_Point.y = (this.points[p].y + this.next_Point.y) * .5;
+    this.next_Point.x = (this.points[i].x + this.next_Point.x) * .5;
+    this.next_Point.y = (this.points[i].y + this.next_Point.y) * .5;
     return;
   }
 
   pointXY(x: number, y: number): void {
     this.ctx.beginPath();
     this.ctx.arc(x, y, 2, 0, FULL_ARC);
+    this.ctx.fill();
   }
 
 }
