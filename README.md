@@ -6,7 +6,7 @@
 ![Sierpinski Triangle](https://upload.wikimedia.org/wikipedia/commons/3/38/Sierpinski-zoom4-ani.gif)
 
 ## Sample Preview Sierpinksi Triangle
-![Sierpinski Triangle Sample](https://github.com/NoLogig/Sierpinski/blob/master/src/assets/sierpinski.gif)
+![Sierpinski Triangle Sample](https://github.com/NoLogig/Sierpinski/blob/master/src/assets/sierpinksi.gif)
 
 ## Notes to Sierpinski & his contributions
 *Wacław Franciszek Sierpiński (\*14 March 1882 – †21 October 1969)*
