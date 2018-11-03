@@ -3,7 +3,7 @@
 [![License](https://img.shields.io/github/license/NoLogig/Sierpinski.svg)](https://choosealicense.com/licenses/mit/)
 [![Donate](https://img.shields.io/badge/PayPal-Donate-blue.svg)](https://www.paypal.me/NoLogig)
 
-![Sierpinski Triangle](https://de.wikipedia.org/wiki/Sierpinski-Dreieck#/media/File:Sierpinski-zoom4-ani.gif)
+![Sierpinski Triangle](https://upload.wikimedia.org/wikipedia/commons/3/38/Sierpinski-zoom4-ani.gif)
 
 ## Sample Preview Sierpinksi Triangle
 ![Sierpinski Triangle Sample](https://github.com/NoLogig/Sierpinski/blob/master/src/assets/sierpinski.gif)
