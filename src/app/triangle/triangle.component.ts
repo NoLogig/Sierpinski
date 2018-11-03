@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, OnInit, OnDestroy } from '@angular/core';
+import { Component, ElementRef, ViewChild, OnInit, OnDestroy, Input } from '@angular/core';
 
 // Speeds performance in iterations up
 const FULL_ARC = Math.PI * 2;
@@ -16,7 +16,6 @@ export class TriangleComponent implements OnDestroy, OnInit {
 
   // Reference to canvas
   @ViewChild('geometry') public canvasGeo: ElementRef;
-
   canvas: HTMLCanvasElement;
   ctx: CanvasRenderingContext2D;
   cWidth = window.innerWidth;
@@ -66,8 +65,7 @@ export class TriangleComponent implements OnDestroy, OnInit {
     this.pointXY(this.points[1].x, this.points[1].y);
     this.pointXY(this.points[2].x, this.points[2].y);
 
-    // this.render();
-
+    this.render();
   }
 
   attachEvent(ele: HTMLElement, event: string, fn: (e: KeyboardEvent | MouseEvent) => void) {

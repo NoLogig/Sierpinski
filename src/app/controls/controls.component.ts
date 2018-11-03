@@ -12,14 +12,17 @@ export class ControlsComponent {
 
   @Output() public openedNavigation = new EventEmitter<boolean>();
   @Output() public openedSettings = new EventEmitter<boolean>();
-
+  @Output() public startedRender = new EventEmitter<boolean>();
+start: boolean;
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches)
     );
 
   constructor(private breakpointObserver: BreakpointObserver) {}
-
+  public startRender() {
+    this.startedRender.emit();
+  }
   public openSettings() {
     this.openedSettings.emit();
   }
