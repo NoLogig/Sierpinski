@@ -1,11 +1,11 @@
 import { Component, ElementRef, ViewChild, OnInit, OnDestroy, Input } from '@angular/core';
 
-// Speeds performance in iterations up
-const FULL_ARC = Math.PI * 2;
 interface IPoint {
   x: number;
   y: number;
 }
+
+const FULL_ARC = Math.PI * 2;
 
 @Component({
   selector: 'nologig-triangle-sierpinski',
@@ -14,20 +14,19 @@ interface IPoint {
 })
 export class TriangleComponent implements OnDestroy, OnInit {
 
-  // Reference to canvas
   @ViewChild('geometry') public canvasGeo: ElementRef;
+
   canvas: HTMLCanvasElement;
   ctx: CanvasRenderingContext2D;
   cWidth = window.innerWidth;
   cHeight = window.innerHeight;
 
+  points: IPoint[] = [];
   next_Point = {
     x: Math.random() * this.cWidth,
     y: Math.random() * this.cHeight
   };
-
-  points: IPoint[] = [];
-
+  
   constructor() { }
 
   ngOnInit(): void {
