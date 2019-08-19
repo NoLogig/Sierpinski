@@ -1,5 +1,4 @@
 # [Sierpinski](https://de.wikipedia.org/wiki/Wac%C5%82aw_Sierpi%C5%84ski)
-[![Dependencies](https://img.shields.io/david/NoLogig/Sierpinski.svg)](https://david-dm.org/NoLogig/Sierpinski)
 [![License](https://img.shields.io/github/license/NoLogig/Sierpinski.svg)](https://choosealicense.com/licenses/mit/)
 
 ![Sierpinski Triangle](https://upload.wikimedia.org/wikipedia/commons/3/38/Sierpinski-zoom4-ani.gif)
